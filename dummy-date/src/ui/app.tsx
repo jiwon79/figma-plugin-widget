@@ -1,42 +1,60 @@
-import * as Networker from "monorepo-networker";
 import { NetworkMessages } from "@common/network/messages";
 
 import { Button } from "@ui/components/Button";
-import "@ui/styles/main.scss";
+import { useState } from "react";
 
 function App() {
+  const [startDate, setStartDate] = useState<Date>(new Date());
+
+  const handleStartDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const date = new Date(event.target.value);
+    setStartDate(date);
+  };
+
+  const handleButtonClick = () => {
+    console.log("handleButtonClick");
+    console.log(startDate);
+    NetworkMessages.CHANGE_SELECTION_TEXT.send({
+      startDate: startDate.toISOString(),
+      type: { type: "auto-increment", gap: 2 },
+      format: "YYYY-MM-DD",
+    });
+  };
+
   return (
-    <div className="homepage">
-      <div className="card">
-        <Button
-          onClick={async () => {
-            const response = await NetworkMessages.PING.request({});
-            console.log("Response:", response);
-          }}
-          style={{ marginInlineStart: 10 }}
-        >
-          ping the other side
-        </Button>
-        <Button
-          onClick={() =>
-            NetworkMessages.CREATE_RECT.send({
-              width: 100,
-              height: 100,
-            })
-          }
-          style={{ marginInlineStart: 10 }}
-        >
-          create square
-        </Button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
+    <div>
+      <label htmlFor="start-date">
+        <p>Start Date</p>
+        <input
+          type="date"
+          id="start-date"
+          value={startDate.toISOString().split("T")[0]}
+          onChange={handleStartDate}
+        />
+      </label>
+
+      <div>
+        <label htmlFor="change-random">
+          <input
+            type="radio"
+            id="change-random"
+            name="change-type"
+            value="random"
+          />
+          <p>random</p>
+        </label>
+        <label htmlFor="change-auto-increament">
+          <input
+            type="radio"
+            id="change-auto-increament"
+            name="change-type"
+            value="auto-increament"
+          />
+          <p>auto-increament</p>
+        </label>
       </div>
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more <br />
-        <span>(Current logical side = {Networker.Side.current.getName()})</span>
-      </p>
+      <Button onClick={handleButtonClick}>Change</Button>
     </div>
   );
 }
