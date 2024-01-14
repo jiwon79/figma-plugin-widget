@@ -1,6 +1,7 @@
 import { Button } from "@ui/components/Button";
 import { useState } from "react";
 import { UINetwork } from "./UINetwork";
+import "./app.css";
 
 function App() {
   const [startDate, setStartDate] = useState<Date>(new Date());
@@ -24,7 +25,7 @@ function App() {
   return (
     <div>
       <label htmlFor="start-date">
-        <p>Start Date</p>
+        <p className="bg-slate-200 size-2/3">Start Date</p>
         <input
           type="date"
           id="start-date"
