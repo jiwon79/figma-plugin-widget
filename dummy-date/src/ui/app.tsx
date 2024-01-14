@@ -1,6 +1,6 @@
-import { Button } from "@ui/components/Button";
 import { useState } from "react";
 import { UINetwork } from "./UINetwork";
+import { DatePicker } from "./components/DatePicker";
 import "./app.css";
 
 function App() {
@@ -25,13 +25,8 @@ function App() {
   return (
     <div>
       <label htmlFor="start-date">
-        <p className="bg-slate-200 size-2/3">Start Date</p>
-        <input
-          type="date"
-          id="start-date"
-          value={startDate.toISOString().split("T")[0]}
-          onChange={handleStartDate}
-        />
+        <p className="bg-slate-200">Start Date</p>
+        <DatePicker />
       </label>
 
       <div>
@@ -55,7 +50,7 @@ function App() {
         </label>
       </div>
 
-      <Button onClick={handleButtonClick}>Change</Button>
+      <button onClick={handleButtonClick}>Change</button>
     </div>
   );
 }
