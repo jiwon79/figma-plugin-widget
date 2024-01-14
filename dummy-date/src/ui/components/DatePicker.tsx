@@ -25,12 +25,12 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
       <PopoverTrigger asChild>
         <Button
           variant={"outline"}
+          size={"sm"}
           className={cn(
-            "w-[280px] justify-start text-left font-normal",
+            "w-full h-full justify-start text-left font-normal",
             !value && "text-muted-foreground"
           )}
         >
-          {/* <CalendarIcon className="mr-2 h-4 w-4" /> */}
           {value ? format(value, "yyyy-MM-dd") : <span>Pick a date</span>}
         </Button>
       </PopoverTrigger>
