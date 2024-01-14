@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { UINetwork } from "./UINetwork";
-import { FormRow, DatePicker } from "@ui/components";
-import "./app.css";
-import { Input } from "@ui/@/components/ui/input";
+import { DatePicker, Form } from "@ui/components";
 import {
   Button,
+  Input,
+  ScrollArea,
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@ui/@/components";
-import { ScrollArea } from "@ui/@/components/ui/scroll-area";
+import "./app.css";
 
 function App() {
   const [startDate, setStartDate] = useState<Date>(new Date());
@@ -36,17 +34,17 @@ function App() {
 
   return (
     <div>
-      <div className="flex flex-col">
-        <FormRow label={"Start Date"}>
+      <Form>
+        <Form.Row label={"Start Date"}>
           <DatePicker
             value={startDate}
             onChange={(startDate) => handleStartDate(startDate)}
           />
-        </FormRow>
-        <FormRow label={"Gap"}>
+        </Form.Row>
+        <Form.Row label={"Gap"}>
           <Input className="h-full" type="number" />
-        </FormRow>
-        <FormRow label={"Format"}>
+        </Form.Row>
+        <Form.Row label={"Format"}>
           <Select>
             <SelectTrigger className="w-full h-8">
               <SelectValue placeholder="Select a Date Format" />
@@ -65,8 +63,8 @@ function App() {
             </SelectContent>
           </Select>
           <Input className="h-8" type="text" />
-        </FormRow>
-      </div>
+        </Form.Row>
+      </Form>
 
       <div className="w-full px-2">
         <Button
