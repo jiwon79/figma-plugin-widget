@@ -1,27 +1,3 @@
-import { NetworkSide } from "@common/network/sides";
-import { test } from "@plugin/test";
-// import {
-//   ChangeSelectionTextPayload,
-//   changeSelectionText,
-// } from "@plugin/actions/changeSelectionText";
-import * as Networker from "monorepo-networker";
-
-export class ChangeSelectionTextMessage extends Networker.MessageType<ChangeSelectionTextPayload> {
-  public receivingSide(): Networker.Side {
-    return NetworkSide.PLUGIN;
-  }
-
-  public handle(
-    payload: ChangeSelectionTextPayload,
-    from: Networker.Side
-  ): void {
-    console.log("ChangeSelectionTextMessage", payload);
-    if (figma.editorType === "figma") {
-      changeSelectionText(payload);
-    }
-  }
-}
-
 export interface ChangeSelectionTextPayload {
   startDate: string;
   format: string;

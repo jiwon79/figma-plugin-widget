@@ -1,7 +1,6 @@
-import { NetworkMessages } from "@common/network/messages";
-
 import { Button } from "@ui/components/Button";
 import { useState } from "react";
+import { UINetwork } from "./UINetwork";
 
 function App() {
   const [startDate, setStartDate] = useState<Date>(new Date());
@@ -12,12 +11,8 @@ function App() {
   };
 
   const handleButtonClick = () => {
-    console.log("handleButtonClick");
-    console.log(startDate);
-    NetworkMessages.CHANGE_SELECTION_TEXT.send({
-      startDate: startDate.toISOString(),
-      type: { type: "auto-increment", gap: 2 },
-      format: "YYYY-MM-DD",
+    UINetwork.send({
+      type: "TEST",
     });
   };
 

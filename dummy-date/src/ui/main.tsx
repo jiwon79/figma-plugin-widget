@@ -1,13 +1,9 @@
-import { initializeNetwork } from "@common/network/init";
-import { NetworkMessages } from "@common/network/messages";
-import { NetworkSide } from "@common/network/sides";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { UINetwork } from "./UINetwork";
 
 async function bootstrap() {
-  initializeNetwork(NetworkSide.UI);
-
-  NetworkMessages.HELLO_PLUGIN.send({ text: "Hey there, Figma!" });
+  window.onmessage = UINetwork.onMessage;
 
   const App = (await import("./app")).default;
 
