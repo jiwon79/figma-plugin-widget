@@ -6,11 +6,12 @@ export interface BaseMessage {
 export type Message =
   | {
       type: "CHANGE_SELECTION_TEXT_TO_DATE";
-      payload: {
-        startDate: string;
-        format: string;
-        method: "random" | "auto-increment";
-        gap?: number;
-      };
+      payload: ChangeSelectionTextPayload;
     }
   | { type: "TEST" };
+
+export interface ChangeSelectionTextPayload {
+  startDate: string;
+  format: string;
+  gap: number;
+}

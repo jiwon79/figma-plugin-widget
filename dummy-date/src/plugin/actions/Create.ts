@@ -1,20 +1,7 @@
-export interface ChangeSelectionTextPayload {
-  startDate: string;
-  format: string;
-  type: ChangeDateType;
-}
-
-export type ChangeDateType =
-  | {
-      type: "random";
-    }
-  | {
-      type: "auto-increment";
-      gap: number;
-    };
+import { ChangeSelectionTextPayload } from "@common/interface/Message";
 
 export async function changeSelectionText(payload: ChangeSelectionTextPayload) {
-  const { startDate, format, type } = payload;
+  const { startDate, format, gap } = payload;
 
   const selection = figma.currentPage.selection;
 
@@ -22,8 +9,6 @@ export async function changeSelectionText(payload: ChangeSelectionTextPayload) {
     figma.notify("No text selected");
     return;
   }
-  console.log(startDate, format, type);
-
   const date = new Date(startDate);
 
   selection.forEach(async (node) => {

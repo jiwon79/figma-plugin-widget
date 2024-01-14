@@ -12,7 +12,12 @@ function App() {
 
   const handleButtonClick = () => {
     UINetwork.send({
-      type: "TEST",
+      type: "CHANGE_SELECTION_TEXT_TO_DATE",
+      payload: {
+        startDate: startDate.toISOString().split("T")[0],
+        format: "YYYY-MM-DD",
+        gap: 1,
+      },
     });
   };
 
