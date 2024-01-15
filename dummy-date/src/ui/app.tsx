@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { UINetwork } from "./UINetwork";
-import { DatePicker, Form } from "@ui/components";
+import { DatePicker, Form, Navigation } from "@ui/components";
 import {
   Button,
   Input,
@@ -14,18 +14,32 @@ import {
 } from "@ui/@/components";
 import "./app.css";
 
-function App() {
-  const [startDate, setStartDate] = useState<Date>(new Date());
+interface DummyDateForm {
+  startDate: Date;
+  gap: number;
+  format: string;
+}
 
-  const handleStartDate = (newStartDate: Date) => {
-    setStartDate(newStartDate);
-  };
+function App() {
+  const [navigation, setNavigation] = useState<string>("Dummy Date");
+
+  const [dummyDateForm, setDummyDateForm] = useState<DummyDateForm>({
+    startDate: new Date(),
+    gap: 1,
+    format: "yyyy-MM-dd",
+  });
+
+  const handleDummyDateForm =
+    <T extends keyof DummyDateForm>(key: T) =>
+    (value: DummyDateForm[T]) => {
+      setDummyDateForm((prev) => ({ ...prev, [key]: value }));
+    };
 
   const handleButtonClick = () => {
     UINetwork.send({
       type: "CHANGE_SELECTION_TEXT_TO_DATE",
       payload: {
-        startDate: startDate.toISOString().split("T")[0],
+        startDate: dummyDateForm.startDate.toISOString().split("T")[0],
         format: "YYYY-MM-DD",
         gap: 1,
       },
@@ -34,18 +48,32 @@ function App() {
 
   return (
     <div>
+      <Navigation
+        items={["Dummy Date", "About"]}
+        selected={navigation}
+        onSelect={(item) => setNavigation(item)}
+      />
+
       <Form>
         <Form.Row label={"Start Date"}>
           <DatePicker
-            value={startDate}
-            onChange={(startDate) => handleStartDate(startDate)}
+            value={dummyDateForm.startDate}
+            onChange={handleDummyDateForm("startDate")}
           />
         </Form.Row>
         <Form.Row label={"Gap"}>
-          <Input className="h-full" type="number" />
+          <Input
+            className="h-full"
+            type="number"
+            value={dummyDateForm.gap}
+            onChange={(e) => handleDummyDateForm("gap")(Number(e.target.value))}
+          />
         </Form.Row>
         <Form.Row label={"Format"}>
-          <Select>
+          <Select
+            value={dummyDateForm.format}
+            onValueChange={handleDummyDateForm("format")}
+          >
             <SelectTrigger className="w-full h-8">
               <SelectValue placeholder="Select a Date Format" />
             </SelectTrigger>
@@ -68,10 +96,10 @@ function App() {
 
       <div className="w-full px-2">
         <Button
-          className="w-full bg-green-500 hover:bg-green-600"
+          className="w-full border bg-white border-green-400 hover:bg-green-100 text-gray-600 hover:text-gray-800"
           onClick={() => handleButtonClick()}
         >
-          <p className="text-lg text-gray-100">Change</p>
+          <p className="text-base">Change</p>
         </Button>
       </div>
     </div>
