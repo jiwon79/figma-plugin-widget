@@ -1,22 +1,19 @@
 import { DatePicker, Form } from "@ui/components";
-import {
-  Button,
-  Input,
-  ScrollArea,
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@ui/@/components";
+import { Button } from "@ui/@/components";
 import { useState } from "react";
 import { UINetwork } from "@ui/UINetwork";
+import {
+  FormatSelectInput,
+  FormatTextInput,
+  GapInput,
+  StartDateInput,
+} from "@ui/components/Input";
 
 interface DummyDateForm {
   startDate: Date;
   gap: number;
   format: string;
+  customFormat?: string;
 }
 
 export function ChangeDatePage() {
@@ -47,41 +44,28 @@ export function ChangeDatePage() {
     <div>
       <Form>
         <Form.Row label={"Start Date"}>
-          <DatePicker
-            value={dummyDateForm.startDate}
+          <StartDateInput
+            startDate={dummyDateForm.startDate}
             onChange={handleDummyDateForm("startDate")}
           />
         </Form.Row>
         <Form.Row label={"Gap"}>
-          <Input
-            className="h-full"
-            type="number"
-            value={dummyDateForm.gap}
-            onChange={(e) => handleDummyDateForm("gap")(Number(e.target.value))}
+          <GapInput
+            gap={dummyDateForm.gap}
+            onChange={handleDummyDateForm("gap")}
           />
         </Form.Row>
         <Form.Row label={"Format"}>
-          <Select
-            value={dummyDateForm.format}
-            onValueChange={handleDummyDateForm("format")}
-          >
-            <SelectTrigger className="w-full h-8">
-              <SelectValue placeholder="Select a Date Format" />
-            </SelectTrigger>
-            <SelectContent>
-              <ScrollArea className="h-40">
-                <SelectGroup>
-                  <SelectItem value="yyyy-MM-dd">yyyy-MM-dd</SelectItem>
-                  <SelectItem value="yyyy/MM/dd">yyyy/MM/dd</SelectItem>
-                  <SelectItem value="MM-dd">MM-dd</SelectItem>
-                  <SelectItem value="MM/dd">MM/dd</SelectItem>
-                  <SelectItem value="dd">dd</SelectItem>
-                  <SelectItem value="custom">custom</SelectItem>
-                </SelectGroup>
-              </ScrollArea>
-            </SelectContent>
-          </Select>
-          <Input className="h-8" type="text" />
+          <FormatSelectInput
+            format={dummyDateForm.format}
+            onChange={handleDummyDateForm("format")}
+          />
+          {dummyDateForm.format === "custom" && (
+            <FormatTextInput
+              format={dummyDateForm.customFormat}
+              onChange={handleDummyDateForm("customFormat")}
+            />
+          )}
         </Form.Row>
       </Form>
 
