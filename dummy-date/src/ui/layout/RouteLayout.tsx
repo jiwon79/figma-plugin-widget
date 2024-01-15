@@ -17,7 +17,11 @@ export function RouteLayout({ routes, defaultRoute, pages }: RouteLayoutProps) {
   return (
     <div>
       <Navigation items={routes} selected={route} onSelect={handleRoute} />
-      {pages[route]}
+      {Object.entries(pages).map(([key, value]) => (
+        <div key={key} hidden={key !== route}>
+          {value}
+        </div>
+      ))}
     </div>
   );
 }

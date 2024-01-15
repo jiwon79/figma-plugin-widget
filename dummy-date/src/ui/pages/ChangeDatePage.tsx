@@ -87,7 +87,7 @@ export function ChangeDatePage() {
 
       <div className="w-full px-2">
         <Button
-          className="w-full border bg-white border-green-400 hover:bg-green-100 text-gray-600 hover:text-gray-800"
+          className="w-full border bg-white border-blue-400 hover:bg-blue-100 text-gray-600 hover:text-gray-800"
           onClick={() => handleButtonClick()}
         >
           <p className="text-base">Change</p>
