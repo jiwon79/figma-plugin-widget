@@ -5,21 +5,17 @@ async function bootstrap() {
 
   if (figma.editorType === "figma") {
     figma.showUI(__html__, {
-      width: 300,
-      height: 400,
-      title: "My Figma Plugin!",
+      width: 240,
+      height: 280,
+      title: "Dummy Date",
     });
   } else if (figma.editorType === "figjam") {
     figma.showUI(__html__, {
-      width: 800,
-      height: 650,
-      title: "My FigJam Plugin!",
+      width: 240,
+      height: 280,
+      title: "Dummy Date",
     });
   }
-
-  PluginNetwork.send({
-    type: "TEST",
-  });
 }
 
 bootstrap();

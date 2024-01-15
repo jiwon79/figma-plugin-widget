@@ -23,7 +23,7 @@ export function FormatSelectInput({
         <SelectValue placeholder="Select a Date Format" />
       </SelectTrigger>
       <SelectContent>
-        <ScrollArea className="h-40">
+        <ScrollArea className="h-24">
           <SelectGroup>
             <SelectItem value="yyyy-MM-dd">yyyy-MM-dd</SelectItem>
             <SelectItem value="yyyy/MM/dd">yyyy/MM/dd</SelectItem>

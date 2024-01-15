@@ -1,7 +1,7 @@
 import { Input } from "@ui/@/components";
 
 interface FormatTextInputProps {
-  format: string | undefined;
+  format: string;
   onChange: (format: string) => void;
 }
 

@@ -13,7 +13,7 @@ interface DummyDateForm {
   startDate: Date;
   gap: number;
   format: string;
-  customFormat?: string;
+  customFormat: string;
 }
 
 export function ChangeDatePage() {
@@ -21,6 +21,7 @@ export function ChangeDatePage() {
     startDate: new Date(),
     gap: 1,
     format: "yyyy-MM-dd",
+    customFormat: "yyyy-MM-dd",
   });
 
   const handleDummyDateForm =
@@ -34,7 +35,10 @@ export function ChangeDatePage() {
       type: "CHANGE_SELECTION_TEXT_TO_DATE",
       payload: {
         startDate: dummyDateForm.startDate.toISOString().split("T")[0],
-        format: "YYYY-MM-DD",
+        format:
+          dummyDateForm.format === "custom"
+            ? dummyDateForm.customFormat
+            : dummyDateForm.format,
         gap: 1,
       },
     });
@@ -69,7 +73,7 @@ export function ChangeDatePage() {
         </Form.Row>
       </Form>
 
-      <div className="w-full px-2">
+      <div className="w-full px-2 mt-4">
         <Button
           className="w-full border bg-white border-blue-400 hover:bg-blue-100 text-gray-600 hover:text-gray-800"
           onClick={() => handleButtonClick()}
