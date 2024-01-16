@@ -20,8 +20,8 @@ export function ChangeDatePage() {
   const [dummyDateForm, setDummyDateForm] = useState<DummyDateForm>({
     startDate: new Date(),
     gap: 1,
-    format: "yyyy-MM-dd",
-    customFormat: "yyyy-MM-dd",
+    format: "yyyy-mm-dd",
+    customFormat: "yyyy-mm-dd",
   });
 
   const handleDummyDateForm =
@@ -34,12 +34,12 @@ export function ChangeDatePage() {
     UINetwork.send({
       type: "CHANGE_SELECTION_TEXT_TO_DATE",
       payload: {
-        startDate: dummyDateForm.startDate.toISOString().split("T")[0],
+        startDate: dummyDateForm.startDate.toISOString(),
         format:
           dummyDateForm.format === "custom"
             ? dummyDateForm.customFormat
             : dummyDateForm.format,
-        gap: 1,
+        gap: dummyDateForm.gap,
       },
     });
   };
