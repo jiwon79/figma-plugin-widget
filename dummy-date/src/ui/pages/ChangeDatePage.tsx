@@ -72,6 +72,23 @@ export function ChangeDatePage() {
           )}
         </Form.Row>
       </Form>
+      <div className="px-2 mt-4 text-sm text-gray-700">
+        <h6 className="text-gray-800 font-semibold">Format Preview</h6>
+        <ul className="list-disc list-inside">
+          <li>
+            yyyy {"->"} {dummyDateForm.startDate.getFullYear()}
+          </li>
+          <li>
+            yy {"->"} {dummyDateForm.startDate.getFullYear() % 100}
+          </li>
+          <li>
+            mm {"->"} {dummyDateForm.startDate.getMonth() + 1}
+          </li>
+          <li>
+            dd {"->"} {dummyDateForm.startDate.getDate()}
+          </li>
+        </ul>
+      </div>
 
       <div className="w-full px-2 mt-4">
         <Button
