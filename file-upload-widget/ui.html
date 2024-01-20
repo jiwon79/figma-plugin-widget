@@ -1,0 +1,68 @@
+<input type="file" id="file" name="file" />
+<p id="fileName"></p>
+<button id="downloadButton">Download</button>
+
+<script>
+  const initFileName = '__MACRO__fileName';
+    const initFileType = '__MACRO__fileType';
+
+    if (initFileName !== '') {
+      // setfile name
+        const fileName = document.getElementById("fileName");
+        fileName.innerHTML = initFileName;
+    }
+
+  onmessage = (event) => {
+    console.log('UI -', event.data.pluginMessage)
+    if (event.data.pluginMessage.type === 'DOWNLOAD_FILE') {
+      const { content, name, fileType } = event.data.pluginMessage;
+        const link = document.createElement('a');
+        link.href = content;
+        link.download = name;
+        link.click();
+
+    }
+  };
+
+  let encodedFile = '';
+  let fileName = '';
+    let fileType = '';
+
+    const fileInput = document.getElementById("file");
+    fileInput.onchange = () => {
+      const files = fileInput.files;
+      console.log('files :', files)
+
+      if (!files) {
+        console.log('no files')
+        return;
+      }
+      if (files.length > 1) {
+        console.log('more than one file')
+        return;
+      }
+      const file = files[0]
+
+    console.log('exist files')
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // if file size is more than 100mb, deselect file
+        if (e.target.result.length > 100000000) {
+          fileInput.value = '';
+            return parent.postMessage({ pluginMessage: { type: "fileSizeError" } }, "*");
+        }
+        encodedFile = e.target.result;
+        fileName = file.name;
+        fileType = file.type;
+        parent.postMessage({ pluginMessage: { type: "SAVE_FILE", content: encodedFile, name: fileName, fileType } }, "*" );
+      };
+      reader.readAsDataURL(file);
+    };
+
+    const downloadButton = document.getElementById("downloadButton");
+    downloadButton.onclick = () => {
+      parent.postMessage({ pluginMessage: { type: "DOWNLOAD_FILE"}}, "*");
+
+
+    };
+</script>
