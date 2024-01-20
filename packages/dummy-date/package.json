@@ -6,7 +6,7 @@
   "scripts": {
     "start": "run-s dev",
     "dev": "run-s watch",
-    "dev:ui-only": "vite -c ./vite.config.ui.ts",
+    "dev:ui-only": "vite -c vite.config.ui.ts",
     "watch": "run-p watch:*",
     "watch:ui": "npm run build:ui -- --watch --mode=development",
     "watch:plugin": "npm run build:plugin -- --watch --mode=development",
@@ -16,8 +16,8 @@
     "types:node": "tsc -P tsconfig.node.json",
     "build": "run-s build:*",
     "prebuild": "run-s types clean",
-    "build:ui": "vite build -c ./vite.config.ui.ts",
-    "build:plugin": "vite build -c ./vite.config.plugin.ts"
+    "build:ui": "vite build -c vite.config.ui.ts",
+    "build:plugin": "vite build -c vite.config.plugin.ts"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
