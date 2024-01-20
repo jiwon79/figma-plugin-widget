@@ -8,7 +8,7 @@ export type Message =
       type: "CHANGE_SELECTION_TEXT_TO_DATE";
       payload: ChangeSelectionTextPayload;
     }
-  | { type: "TEST" };
+  | { type: "OPEN_LINK"; payload: { url: string } };
 
 export interface ChangeSelectionTextPayload {
   startDate: string;
