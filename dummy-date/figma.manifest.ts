@@ -8,6 +8,6 @@ export default {
   capabilities: [],
   enableProposedApi: false,
   editorType: ["figma", "figjam"],
-  permissions: ["payments"],
+  permissions: [],
   networkAccess: { allowedDomains: ["none"] },
 };
