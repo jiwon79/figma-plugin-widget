@@ -1,4 +1,6 @@
-import { LogoIcon } from "@ui/components";
+import { LinkIcon } from "@ui/components";
+import IconLinkedin from "@ui/assets/icon/icon-linkedin.png";
+import IconTwitter from "@ui/assets/icon/icon-twitter.png";
 
 export function AboutPage() {
   return (
@@ -16,15 +18,10 @@ export function AboutPage() {
           comment.
         </li>
       </ul>
-      <div className="flex flex-col gap-1 mt-4">
-        <LogoIcon
-          src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/1227/X-256.png"
-          href="twitter.com/ijiwon59585123"
-        />
-        <LogoIcon
-          src="https://cdn4.iconfinder.com/data/icons/social-icons-16/512/LinkedIn_alt-256.png"
-          href="linkedin.com/in/jiiwon79"
-        />
+      <h3 className="mt-3 mb-1">Contact</h3>
+      <div className="flex flex-row gap-1">
+        <LinkIcon src={IconTwitter} href="https://twitter.com/ijiwon59585123" />
+        <LinkIcon src={IconLinkedin} href="https://linkedin.com/in/jiiwon79" />
       </div>
     </div>
   );
