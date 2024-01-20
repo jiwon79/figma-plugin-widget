@@ -4,9 +4,9 @@ const freeFormat = ["yyyy-mm-dd", "dd-mm-yyyy", "mm-dd", "dd"];
 
 export async function changeSelectionText(payload: ChangeSelectionTextPayload) {
   const { startDate, format, gap } = payload;
-  if (!(await checkAccess(format))) {
-    return;
-  }
+  // if (!(await checkAccess(format))) {
+  //   return;
+  // }
 
   const selection = figma.currentPage.selection;
 
