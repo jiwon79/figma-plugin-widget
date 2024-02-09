@@ -2015,6 +2015,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@won/file-share@workspace:packages/file-share":
+  version: 0.0.0-use.local
+  resolution: "@won/file-share@workspace:packages/file-share"
+  dependencies:
+    "@figma/plugin-typings": "npm:^1.85.0"
+    "@figma/widget-typings": "npm:^1.9.1"
+    "@types/node": "npm:^20.11.7"
+    "@types/react": "npm:^18.2.43"
+    "@types/react-dom": "npm:^18.2.17"
+    "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
+    "@typescript-eslint/parser": "npm:^6.14.0"
+    "@vitejs/plugin-react": "npm:^4.2.1"
+    "@vitejs/plugin-react-swc": "npm:^3.5.0"
+    eslint: "npm:^8.55.0"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-react-refresh: "npm:^0.4.5"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:^5.2.2"
+    vite: "npm:^5.0.8"
+    vite-plugin-generate-file: "npm:^0.1.1"
+    vite-plugin-react-rich-svg: "npm:^1.1.0"
+    vite-plugin-singlefile: "npm:^1.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@won/file-upload-widget-xx@workspace:packages/file-upload-widget-xx":
   version: 0.0.0-use.local
   resolution: "@won/file-upload-widget-xx@workspace:packages/file-upload-widget-xx"
