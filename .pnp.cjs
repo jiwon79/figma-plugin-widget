@@ -18,8 +18,8 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/dummy-date"\
     },\
     {\
-      "name": "file-upload-widget",\
-      "reference": "workspace:packages/file-upload-widget"\
+      "name": "@won/file-upload-widget-xx",\
+      "reference": "workspace:packages/file-upload-widget-xx"\
     },\
     {\
       "name": "@won/template-widget-with-ui",\
@@ -30,9 +30,9 @@ const RAW_RUNTIME_STATE =
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
     ["@won/dummy-date", ["workspace:packages/dummy-date"]],\
+    ["@won/file-upload-widget-xx", ["workspace:packages/file-upload-widget-xx"]],\
     ["@won/template-widget-with-ui", ["workspace:packages/template-widget-with-ui"]],\
-    ["figma-plugin-widget", ["workspace:."]],\
-    ["file-upload-widget", ["workspace:packages/file-upload-widget"]]\
+    ["figma-plugin-widget", ["workspace:."]]\
   ],\
   "fallbackPool": [\
   ],\
@@ -2845,6 +2845,20 @@ const RAW_RUNTIME_STATE =
         "linkType": "SOFT"\
       }]\
     ]],\
+    ["@won/file-upload-widget-xx", [\
+      ["workspace:packages/file-upload-widget-xx", {\
+        "packageLocation": "./packages/file-upload-widget-xx/",\
+        "packageDependencies": [\
+          ["@won/file-upload-widget-xx", "workspace:packages/file-upload-widget-xx"],\
+          ["@figma/plugin-typings", "npm:1.84.0"],\
+          ["@figma/widget-typings", "virtual:782e4227d421cb440260e3d9e6cf3469d52f8c420656ff6b606f301fe1e65a2614e2239a57dd8e24c4cb4ec261b8a88f9a47a7e5a61d4d48e249e824f3519602#npm:1.9.1"],\
+          ["esbuild", "npm:0.19.11"],\
+          ["tslib", "npm:2.6.2"],\
+          ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["@won/template-widget-with-ui", [\
       ["workspace:packages/template-widget-with-ui", {\
         "packageLocation": "./packages/template-widget-with-ui/",\
@@ -4493,20 +4507,6 @@ const RAW_RUNTIME_STATE =
           ["flat-cache", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
-      }]\
-    ]],\
-    ["file-upload-widget", [\
-      ["workspace:packages/file-upload-widget", {\
-        "packageLocation": "./packages/file-upload-widget/",\
-        "packageDependencies": [\
-          ["file-upload-widget", "workspace:packages/file-upload-widget"],\
-          ["@figma/plugin-typings", "npm:1.84.0"],\
-          ["@figma/widget-typings", "virtual:782e4227d421cb440260e3d9e6cf3469d52f8c420656ff6b606f301fe1e65a2614e2239a57dd8e24c4cb4ec261b8a88f9a47a7e5a61d4d48e249e824f3519602#npm:1.9.1"],\
-          ["esbuild", "npm:0.19.11"],\
-          ["tslib", "npm:2.6.2"],\
-          ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
-        ],\
-        "linkType": "SOFT"\
       }]\
     ]],\
     ["filelist", [\
