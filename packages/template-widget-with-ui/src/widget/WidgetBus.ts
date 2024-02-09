@@ -1,5 +1,5 @@
 import "@won-types";
-import { TemplateWidgetWithUIMessage } from "@won-template-witdget-with-ui/common";
+import { TemplateWidgetWithUIMessage } from "@won-template-widget-with-ui/common";
 
 export class WidgetBus {
   static listenrMap = new Map<

@@ -1,4 +1,4 @@
-import { TemplateWidgetWithUIMessage } from "@won-template-witdget-with-ui/common";
+import { TemplateWidgetWithUIMessage } from "@won-template-widget-with-ui/common";
 
 export class UIBus {
   static on(event: MessageEvent<TemplateWidgetWithUIMessage>) {
