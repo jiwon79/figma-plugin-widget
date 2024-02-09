@@ -1,6 +1,6 @@
-import { LinkIcon } from "@ui/components";
-import IconLinkedin from "@ui/assets/icon/icon-linkedin.png";
-import IconTwitter from "@ui/assets/icon/icon-twitter.png";
+import { LinkIcon } from "@won-dummy-date-ui/components";
+import IconLinkedin from "@won-dummy-date-ui/assets/icon/icon-linkedin.png";
+import IconTwitter from "@won-dummy-date-ui/assets/icon/icon-twitter.png";
 
 export function AboutPage() {
   return (

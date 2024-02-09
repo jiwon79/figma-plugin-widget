@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@ui/@/components";
+} from "@won-dummy-date-ui/@";
 
 interface FormatSelectInputProps {
   format: string;

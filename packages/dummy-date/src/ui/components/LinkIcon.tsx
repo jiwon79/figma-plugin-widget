@@ -1,5 +1,5 @@
-import { cn } from "@ui/@/lib/utils";
-import { UINetwork } from "@ui/UINetwork";
+import { cn } from "../utils/cn";
+import { UINetwork } from "../UINetwork";
 
 interface LogoIconProps {
   href: string;

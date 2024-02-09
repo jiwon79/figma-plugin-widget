@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "figma.widget.h",
+    "jsxFragmentFactory": "figma.widget.Fragment",
+    "moduleResolution": "node",
+    "target": "ES2021",
+    "lib": ["ES2021"],
+    "strict": true,
+    "typeRoots": []
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "extends": "../../../../tsconfig.base.json"
+}

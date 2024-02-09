@@ -1,5 +1,5 @@
 {
-  "name": "dummy-date",
+  "name": "@won/dummy-date",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -14,7 +14,7 @@
     "types": "run-s types:*",
     "types:src": "tsc",
     "types:node": "tsc -P tsconfig.node.json",
-    "build": "run-s build:*",
+    "build": "yarn run build:ui && yarn run build:plugin",
     "prebuild": "run-s types clean",
     "build:ui": "vite build -c vite.config.ui.ts",
     "build:plugin": "vite build -c vite.config.plugin.ts"
@@ -32,10 +32,11 @@
     "react-day-picker": "^8.10.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@figma/plugin-typings": "^1.83.0",
+    "@figma/plugin-typings": "^1.84.0",
     "@types/node": "^18.15.11",
     "@types/postcss-url": "^10.0.0",
     "@types/react": "^18.0.28",

@@ -28,8 +28,9 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     alias: {
-      "@common": path.resolve("src/common"),
-      "@ui": path.resolve("src/ui"),
+      "@won-dummy-date": path.resolve("src"),
+      "@won-dummy-date-common": path.resolve("src/common"),
+      "@won-dummy-date-ui": path.resolve("src/ui"),
     },
   },
 }));

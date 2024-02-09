@@ -1,13 +1,13 @@
-import { DatePicker, Form } from "@ui/components";
-import { Button } from "@ui/@/components";
 import { useState } from "react";
-import { UINetwork } from "@ui/UINetwork";
+import { Button } from "../@";
+import { UINetwork } from "../UINetwork";
 import {
+  Form,
   FormatSelectInput,
   FormatTextInput,
   GapInput,
   StartDateInput,
-} from "@ui/components/Input";
+} from "../components";
 
 interface DummyDateForm {
   startDate: Date;
