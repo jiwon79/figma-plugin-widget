@@ -1,4 +1,4 @@
-import { Input } from "@ui/@/components";
+import { Input } from "@won-dummy-date-ui/@";
 
 interface GapInputProps {
   gap: number;

@@ -1,4 +1,4 @@
-import { cn } from "@ui/@/lib/utils";
+import { cn } from "@won-dummy-date-ui/utils";
 
 interface NavigationProps {
   items: string[];

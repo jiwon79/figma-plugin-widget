@@ -1,4 +1,4 @@
-import { ChangeSelectionTextPayload } from "@common/interface/Message";
+import { ChangeSelectionTextPayload } from "@won-dummy-date-common/interface/Message";
 
 const freeFormat = ["yyyy-mm-dd", "dd-mm-yyyy", "mm-dd", "dd"];
 

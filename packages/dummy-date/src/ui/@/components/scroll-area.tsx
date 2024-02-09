@@ -1,13 +1,15 @@
 import * as React from "react";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 
-import { cn } from "@ui/@/lib/utils";
+import { cn } from "@won-dummy-date-ui/utils";
+import { changeKeyType } from "../utils";
 
-const ScrollArea = React.forwardRef<
+export const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, key, ...props }, ref) => (
   <ScrollAreaPrimitive.Root
+    key={changeKeyType(key)}
     ref={ref}
     className={cn("relative overflow-hidden", className)}
     {...props}
@@ -21,11 +23,12 @@ const ScrollArea = React.forwardRef<
 ));
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
 
-const ScrollBar = React.forwardRef<
+export const ScrollBar = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
->(({ className, orientation = "vertical", ...props }, ref) => (
+>(({ className, orientation = "vertical", key, ...props }, ref) => (
   <ScrollAreaPrimitive.ScrollAreaScrollbar
+    key={changeKeyType(key)}
     ref={ref}
     orientation={orientation}
     className={cn(
@@ -42,5 +45,3 @@ const ScrollBar = React.forwardRef<
   </ScrollAreaPrimitive.ScrollAreaScrollbar>
 ));
 ScrollBar.displayName = ScrollAreaPrimitive.ScrollAreaScrollbar.displayName;
-
-export { ScrollArea, ScrollBar };

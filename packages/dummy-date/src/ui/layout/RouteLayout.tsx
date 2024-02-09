@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigation } from "@ui/components";
+import { Navigation } from "@won-dummy-date-ui/components";
 
 interface RouteLayoutProps {
   routes: string[];

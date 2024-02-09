@@ -1,4 +1,4 @@
-import { Input } from "@ui/@/components";
+import { Input } from "@won-dummy-date-ui/@";
 
 interface FormatTextInputProps {
   format: string;

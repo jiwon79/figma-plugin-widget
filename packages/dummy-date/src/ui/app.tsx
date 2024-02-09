@@ -1,6 +1,6 @@
+import { RouteLayout } from "./layout";
+import { AboutPage, ChangeDatePage } from "./pages";
 import "./app.css";
-import { RouteLayout } from "@ui/layout";
-import { AboutPage, ChangeDatePage } from "@ui/pages";
 
 function App() {
   return (

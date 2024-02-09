@@ -1,5 +1,5 @@
-import path from "node:path";
 import { defineConfig } from "vite";
+import path from "node:path";
 import generateFile from "vite-plugin-generate-file";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import figmaManifest from "./figma.manifest";
@@ -13,25 +13,24 @@ export default defineConfig(({ mode }) => ({
       data: figmaManifest,
     }),
   ],
+  root: path.resolve("src/widget"),
   build: {
     minify: mode === "production",
+    cssMinify: mode === "production",
     sourcemap: mode !== "production" ? "inline" : false,
-    target: "es2017",
     emptyOutDir: false,
     outDir: path.resolve("dist"),
     rollupOptions: {
-      input: path.resolve("src/plugin/plugin.ts"),
+      input: path.resolve("src/widget/code.tsx"),
       output: {
-        entryFileNames: "plugin.js",
+        entryFileNames: "code.js",
       },
     },
   },
   resolve: {
     alias: {
       "@won-types": path.resolve("../@types/build-alias.ts"),
-      "@won-dummy-date": path.resolve("src"),
-      "@won-dummy-date-common": path.resolve("src/common"),
-      "@won-dummy-date-plugin": path.resolve("src/plugin"),
+      "@won-template-widget-with-ui": path.resolve("src"),
     },
   },
 }));

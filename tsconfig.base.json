@@ -5,8 +5,8 @@
     "declarationMap": true,
     "incremental": true,
     "importHelpers": true,
-    "lib": ["ES2016", "DOM"],
-    "target": "ES2016",
+    "lib": ["ES2021", "DOM"],
+    "target": "ES2021",
     "module": "ESNext",
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -21,7 +21,10 @@
       "@won-dummy-date/*": ["packages/dummy-date/src/*"],
       "@won-dummy-date-common/*": ["packages/dummy-date/src/common/*"],
       "@won-dummy-date-plugin/*": ["packages/dummy-date/src/plugin/*"],
-      "@won-dummy-date-ui/*": ["packages/dummy-date/src/ui/*"]
+      "@won-dummy-date-ui/*": ["packages/dummy-date/src/ui/*"],
+      "@won-template-witdget-with-ui/*": [
+        "packages/template-widget-with-ui/src/*"
+      ]
     }
   },
   "exclude": [".yarn", "node_modules", "dist", "packages/**/dist/**"]

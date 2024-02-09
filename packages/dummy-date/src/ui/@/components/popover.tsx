@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import { cn } from "@ui/@/lib/utils";
+import { cn } from "@won-dummy-date-ui/utils";
+import { changeKeyType } from "../utils";
 
 const Popover = PopoverPrimitive.Root;
 
@@ -12,9 +13,10 @@ const PopoverAnchor = PopoverPrimitive.Anchor;
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
->(({ className, align = "center", sideOffset = 4, ...props }, ref) => (
+>(({ key, className, align = "center", sideOffset = 4, ...props }, ref) => (
   <PopoverPrimitive.Portal>
     <PopoverPrimitive.Content
+      key={changeKeyType(key)}
       ref={ref}
       align={align}
       sideOffset={sideOffset}

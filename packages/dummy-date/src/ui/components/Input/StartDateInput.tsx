@@ -1,4 +1,4 @@
-import { DatePicker } from "@ui/components";
+import { DatePicker } from "../DatePicker";
 
 interface StartDateInputProps {
   startDate: Date;

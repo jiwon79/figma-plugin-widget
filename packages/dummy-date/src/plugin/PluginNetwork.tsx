@@ -1,5 +1,6 @@
-import { Message } from "@common/interface/Message";
-import { openLink, changeSelectionText } from "@plugin/actions";
+import "@won-types";
+import { Message } from "@won-dummy-date/common/interface";
+import { openLink, changeSelectionText } from "./actions";
 
 export class PluginNetwork {
   static onMessage(message: Message) {

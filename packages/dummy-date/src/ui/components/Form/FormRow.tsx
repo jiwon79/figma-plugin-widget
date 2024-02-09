@@ -1,5 +1,5 @@
 import { Children } from "react";
-import { cn } from "@ui/@/lib/utils";
+import { cn } from "@won-dummy-date-ui/utils";
 
 interface FormRowProps {
   label: string;
