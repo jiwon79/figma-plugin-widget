@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "importHelpers": true,
+    "lib": ["ES2016", "DOM"],
+    "target": "ES2016",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@won-types": ["packages/@types/index.ts"],
+      "@won-dummy-date/*": ["packages/dummy-date/src/*"],
+      "@won-dummy-date-common/*": ["packages/dummy-date/src/common/*"],
+      "@won-dummy-date-plugin/*": ["packages/dummy-date/src/plugin/*"],
+      "@won-dummy-date-ui/*": ["packages/dummy-date/src/ui/*"]
+    }
+  },
+  "exclude": [".yarn", "node_modules", "dist", "packages/**/dist/**"]
+}
