@@ -3,7 +3,9 @@ export interface BaseMessage {
   payload: any;
 }
 
-export type TemplateWidgetWithUIMessage = {
+export type Message = {
   type: "SET_NUMBER";
   payload: { number: number };
 };
+
+export type MessageType = Message["type"];

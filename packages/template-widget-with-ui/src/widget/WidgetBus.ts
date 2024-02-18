@@ -1,25 +1,19 @@
 import "@won-types";
-import { TemplateWidgetWithUIMessage } from "@won-template-widget-with-ui/common";
+import { Message } from "@won-template-widget-with-ui/common";
 
 export class WidgetBus {
-  static listenrMap = new Map<
-    TemplateWidgetWithUIMessage["type"],
-    Function[]
-  >();
+  static listenrMap = new Map<Message["type"], Function[]>();
 
-  static on(message: TemplateWidgetWithUIMessage) {
-    console.log("PLUGIN -", message);
+  static on(message: Message) {
     if (!WidgetBus.listenrMap.has(message.type)) return;
 
     const listeners = WidgetBus.listenrMap.get(message.type);
     listeners?.forEach((listener) => listener(message.payload));
   }
 
-  static addListener<T extends TemplateWidgetWithUIMessage["type"]>(
+  static addListener<T extends Message["type"]>(
     type: T,
-    listener: (
-      payload: Extract<TemplateWidgetWithUIMessage, { type: T }>["payload"]
-    ) => void
+    listener: (payload: Extract<Message, { type: T }>["payload"]) => void
   ) {
     if (!WidgetBus.listenrMap.has(type)) {
       WidgetBus.listenrMap.set(type, []);
@@ -27,10 +21,7 @@ export class WidgetBus {
     WidgetBus.listenrMap.get(type)?.push(listener);
   }
 
-  static removeListener(
-    type: TemplateWidgetWithUIMessage["type"],
-    listener: Function
-  ) {
+  static removeListener(type: Message["type"], listener: Function) {
     if (!WidgetBus.listenrMap.has(type)) return;
     const listeners = WidgetBus.listenrMap.get(type);
     const index = listeners?.indexOf(listener);
@@ -40,7 +31,7 @@ export class WidgetBus {
     }
   }
 
-  static send(message: TemplateWidgetWithUIMessage) {
+  static send(message: Message) {
     figma.ui.postMessage(message);
   }
 }
