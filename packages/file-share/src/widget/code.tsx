@@ -23,9 +23,26 @@ function Widget() {
     setFile(file);
   };
 
+  const notifyDownloadFile = () => {
+    WidgetBus.send({
+      type: "DOWNLOAD_FILE",
+      payload: {
+        name: file.name,
+        extension: file.extension,
+        content: file.content,
+      },
+    });
+  };
+
   useEffect(() => {
     figma.ui.onmessage = WidgetBus.on;
     WidgetBus.addListener("SAVE_FILE", saveFile);
+    WidgetBus.addListener("NOTIFY_DOWNLOAD_FILE", notifyDownloadFile);
+
+    return () => {
+      WidgetBus.removeListener("SAVE_FILE", saveFile);
+      WidgetBus.removeListener("NOTIFY_DOWNLOAD_FILE", notifyDownloadFile);
+    };
   });
 
   const openUI = async () =>
@@ -34,7 +51,6 @@ function Widget() {
         __html__
           .replaceAll("__MACRO__fileName", file.name)
           .replaceAll("__MACRO__fileExtension", file.extension)
-          .replaceAll("__MACRO__fileContent", file.content)
       );
     });
 

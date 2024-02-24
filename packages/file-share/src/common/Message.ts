@@ -5,7 +5,7 @@ export interface BaseMessage {
   payload: any;
 }
 
-export type TemplateWidgetWithUIMessage =
+export type FileShareMessage =
   | {
       type: "SET_NUMBER";
       payload: { number: number };
@@ -13,4 +13,6 @@ export type TemplateWidgetWithUIMessage =
   | {
       type: "SAVE_FILE";
       payload: FileObject;
-    };
+    }
+  | { type: "NOTIFY_DOWNLOAD_FILE"; payload: void }
+  | { type: "DOWNLOAD_FILE"; payload: FileObject };
