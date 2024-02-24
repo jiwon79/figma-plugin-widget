@@ -1,9 +1,16 @@
+import { FileObject } from "./FileObject";
+
 export interface BaseMessage {
   type: string;
   payload: any;
 }
 
-export type TemplateWidgetWithUIMessage = {
-  type: "SET_NUMBER";
-  payload: { number: number };
-};
+export type TemplateWidgetWithUIMessage =
+  | {
+      type: "SET_NUMBER";
+      payload: { number: number };
+    }
+  | {
+      type: "SAVE_FILE";
+      payload: FileObject;
+    };
