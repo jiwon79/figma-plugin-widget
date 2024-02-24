@@ -23,6 +23,14 @@ function Widget() {
     setFile(file);
   };
 
+  const deleteFile = () => {
+    setFile({
+      name: UNDEFINED,
+      extension: UNDEFINED,
+      content: UNDEFINED,
+    });
+  };
+
   const notifyDownloadFile = () => {
     WidgetBus.send({
       type: "DOWNLOAD_FILE",
@@ -34,14 +42,32 @@ function Widget() {
     });
   };
 
+  const changeFileName = (name: string) => {
+    setFile({
+      name,
+      extension: file.extension,
+      content: file.content,
+    });
+  };
+
+  const openToast = (message: string) => {
+    figma.notify(message);
+  };
+
   useEffect(() => {
     figma.ui.onmessage = WidgetBus.on;
     WidgetBus.addListener("SAVE_FILE", saveFile);
     WidgetBus.addListener("NOTIFY_DOWNLOAD_FILE", notifyDownloadFile);
+    WidgetBus.addListener("DELETE_FILE", deleteFile);
+    WidgetBus.addListener("CHANGE_FILE_NAME", changeFileName);
+    WidgetBus.addListener("OPEN_TOAST", openToast);
 
     return () => {
       WidgetBus.removeListener("SAVE_FILE", saveFile);
       WidgetBus.removeListener("NOTIFY_DOWNLOAD_FILE", notifyDownloadFile);
+      WidgetBus.removeListener("DELETE_FILE", deleteFile);
+      WidgetBus.removeListener("CHANGE_FILE_NAME", changeFileName);
+      WidgetBus.removeListener("OPEN_TOAST", openToast);
     };
   });
 
@@ -50,7 +76,10 @@ function Widget() {
       figma.showUI(
         __html__
           .replaceAll("__MACRO__fileName", file.name)
-          .replaceAll("__MACRO__fileExtension", file.extension)
+          .replaceAll("__MACRO__fileExtension", file.extension),
+        {
+          height: 240,
+        }
       );
     });
 

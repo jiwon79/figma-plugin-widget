@@ -7,12 +7,11 @@ export interface BaseMessage {
 
 export type FileShareMessage =
   | {
-      type: "SET_NUMBER";
-      payload: { number: number };
-    }
-  | {
       type: "SAVE_FILE";
       payload: FileObject;
     }
   | { type: "NOTIFY_DOWNLOAD_FILE"; payload: void }
-  | { type: "DOWNLOAD_FILE"; payload: FileObject };
+  | { type: "DOWNLOAD_FILE"; payload: FileObject }
+  | { type: "DELETE_FILE"; payload: void }
+  | { type: "CHANGE_FILE_NAME"; payload: string }
+  | { type: "OPEN_TOAST"; payload: string };
