@@ -22,6 +22,7 @@
       "@won-dummy-date-common/*": ["packages/dummy-date/src/common/*"],
       "@won-dummy-date-plugin/*": ["packages/dummy-date/src/plugin/*"],
       "@won-dummy-date-ui/*": ["packages/dummy-date/src/ui/*"],
+      "@won-file-share/*": ["packages/file-share/src/*"],
       "@won-template-widget-with-ui/*": [
         "packages/template-widget-with-ui/src/*"
       ]

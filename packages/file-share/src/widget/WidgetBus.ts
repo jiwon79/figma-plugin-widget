@@ -1,19 +1,22 @@
 import "@won-types";
-import { Message } from "@won-template-widget-with-ui/common";
+import { FileShareMessage } from "@won-file-share/common";
 
 export class WidgetBus {
-  static listenrMap = new Map<Message["type"], Function[]>();
+  static listenrMap = new Map<FileShareMessage["type"], Function[]>();
 
-  static on(message: Message) {
+  static on(message: FileShareMessage) {
+    console.log("PLUGIN -", message);
     if (!WidgetBus.listenrMap.has(message.type)) return;
 
     const listeners = WidgetBus.listenrMap.get(message.type);
     listeners?.forEach((listener) => listener(message.payload));
   }
 
-  static addListener<T extends Message["type"]>(
+  static addListener<T extends FileShareMessage["type"]>(
     type: T,
-    listener: (payload: Extract<Message, { type: T }>["payload"]) => void
+    listener: (
+      payload: Extract<FileShareMessage, { type: T }>["payload"]
+    ) => void
   ) {
     if (!WidgetBus.listenrMap.has(type)) {
       WidgetBus.listenrMap.set(type, []);
@@ -21,7 +24,7 @@ export class WidgetBus {
     WidgetBus.listenrMap.get(type)?.push(listener);
   }
 
-  static removeListener(type: Message["type"], listener: Function) {
+  static removeListener(type: FileShareMessage["type"], listener: Function) {
     if (!WidgetBus.listenrMap.has(type)) return;
     const listeners = WidgetBus.listenrMap.get(type);
     const index = listeners?.indexOf(listener);
@@ -31,7 +34,7 @@ export class WidgetBus {
     }
   }
 
-  static send(message: Message) {
+  static send(message: FileShareMessage) {
     figma.ui.postMessage(message);
   }
 }
