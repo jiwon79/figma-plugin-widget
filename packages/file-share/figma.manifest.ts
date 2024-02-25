@@ -1,7 +1,7 @@
 // https://www.figma.com/plugin-docs/manifest/
 export default {
   name: "File Share",
-  id: "1329456254452207870",
+  id: "1343276857415140668",
   api: "1.0.0",
   widgetApi: "1.0.0",
   ui: "index.html",
